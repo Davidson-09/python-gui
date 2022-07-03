@@ -3,10 +3,6 @@ from tkinter import *
 root = Tk()
 root.title("simple calculator")
 
-global first_number 
-first_number = ''
-global second_number
-second_number=''
 
 e = Entry(root, width=35, border=5)
 e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
@@ -24,15 +20,15 @@ def button_clear():
 
 def button_add():
     first_number = e.get()
+    global f_num
+    f_num = int(first_number)
     e.delete(0, END)
+
 
 def button_equal():
     second_number = e.get()
-    answer = int() + int(second_number)
     e.delete(0, END)
-    e.insert(0, answer)
-    first_number=''
-    second_number=''
+    e.insert(0, f_num+int(second_number))
 
 
 
